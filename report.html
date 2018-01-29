@@ -14129,10 +14129,8 @@ IKSJ6m9n+AAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li><p>By observing the scatterplots, it is possible to verify a correlation between the features of Detergents &amp; Paper with Milk and Grocery. In these cases the correlation seems to form a normal distribution, and confirms that this feature is correlated with other features.</p>
-</li>
-<li><p>For other cases the points appear to be mostly concentrated to the left of the graphs, forming exponential curves. If the log function were used, these distributions could approximate normal distributions.</p>
-</li>
+<li>By observing the scatterplots, it is possible to verify a major correlation between the features of Detergents &amp; Paper with Grocery and a decent correlation between Detergents &amp; Paper and Milk. </li>
+<li>Overall, the data is not normally distributed, but rather skewed right with long tails.</li>
 </ul>
 
 </div>
@@ -19301,7 +19299,9 @@ Once you have performed this implementation, the dataset will be stored in the v
 <ul>
 <li><p>Looking at the matrices above, it is possible to verify that the indices 65, 66, 75, 128, and 154 have outliers in more than one category, and have been marked for removal.</p>
 </li>
-<li><p>These points were removed because they represent a low amount of the total sample (only 5 records out of 440), and not to impact the PCA and other analysis, which can be sensitive to outliers.</p>
+<li><p>These points were removed because they represent a low amount of the total sample, and not to impact the PCA and clustering techniques, which can be sensitive to outliers. (if there are many outliers, there may be a difficulty in algorithms to find clusters where points may converge)</p>
+</li>
+<li><p>I did not find strictly necessary to remove other clients that only had outiers in one of the categories at this first moment, but if the learning results prove to be unsatisfactory, these points can also be removed for possible improvement of the algorithms.</p>
 </li>
 </ul>
 
@@ -19705,13 +19705,13 @@ QmCC
 </li>
 <li><p>With the first to the fourth component, about 0.93 of the variance is explained.</p>
 </li>
-<li><p>The first component has the main weights in 'Detergents_Paper', 'Milk' and 'Grocery' (negatives), corresponding to an identified pattern of customers who purchase fewer products from these categories.</p>
+<li><p>The first component has the main weights in 'Detergents_Paper', 'Milk' and 'Grocery', corresponding to an identified pattern of customers who purchase products from these categories, possibly being Grocerys or Retailers.</p>
 </li>
-<li><p>The second component has major weights in 'Fresh', 'Frozen' and 'Delicatessen' (negatives), corresponding to an identified pattern of customers who purchase fewer products from these categories.</p>
+<li><p>The second component has major weights in 'Fresh', 'Frozen' and 'Delicatessen', corresponding to an identified pattern of customers who purchase products from these categories, possibly being Delis or Restaurants.</p>
 </li>
-<li><p>The third component has the main weights in 'Delicatessen' (positive) and 'Fresh' (negative), correpondendo to an identified pattern of customers who buy more products from the first category, but less from Fresh products.</p>
+<li><p>The third component has the main weights in 'Delicatessen' and 'Frozen' (positive) and 'Fresh' and 'Detergents and Paper' (inverse), corresponding to an identified pattern of customers who buy more (or less) products from the first and second category, but a inverse proportion from Fresh products, possibly being Delis/Restaurants (if more Deli/Frozen) or Grocery/Retailers (if Fresh/Detergents and Papers).</p>
 </li>
-<li><p>The fourth component has major weights in 'Frozen' (positive) and 'Delicatessen' (negative), corresponding to an identified pattern of customers who buy more products from the first category but less from Delicatessen products.</p>
+<li><p>The fourth component has major weights in 'Frozen' (positive) and 'Delicatessen' (inverse), corresponding to an identified pattern of customers who buy more (or less) products from the first category but a inverse proporsion from Delicatessen products, possibly being a deli (if more Delicatessen) or a restaurant/retailer (if more Frozen).</p>
 </li>
 </ul>
 
@@ -22302,6 +22302,7 @@ Sample point 2 predicted to be in Cluster 1
 <p>This decision can affect the customer clusters identified in different ways.</p>
 <p>Cluster 1 focuses on fresh and deli products, and can be adversely affected by the lower number of weekly deliveries.</p>
 <p>Cluster 0 focuses on Grocery, Milk, Detergents and Paper products, which are less perishable, and would be less affected with the change.</p>
+<p>In order to verify if this hypothesis is correct, an A / B test can be done, in which a small customer subset of each cluster is separated, forming a test group that can provide feedback if the hypothesis is correct or not.</p>
 
 </div>
 </div>
